@@ -96,3 +96,10 @@ The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licen
 ### 贡献
 
 如果你有好的意见或建议，欢迎给我们提 issue 或 pull request，为提升微信 web 体验贡献力量
+
+------------------
+
+cnpm install -g cnpm
+cnpm cache clean
+
+

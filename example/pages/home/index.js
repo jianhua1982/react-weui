@@ -73,7 +73,19 @@ export default class Home extends React.Component {
             icon: <img src={IconSearchBar}/>,
             label: 'SearchBar',
             href: '#searchbar'
-        }]
+        }
+
+            // app new added.
+        , {
+            icon: <img src={IconSearchBar}/>,
+            label: 'Comment',
+            href: '#comment'
+        }, {
+            icon: <img src={IconSearchBar}/>,
+            label: 'FilterableEpisodeTable',
+            href: '#filterableEpisodeTable'
+        }
+        ]
     };
 
     render() {

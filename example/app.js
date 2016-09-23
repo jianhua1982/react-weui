@@ -29,6 +29,10 @@ import TabBar from './pages/tab/tabbar';
 import TabBar2 from './pages/tab/tabbar_auto';
 import SearchBar from './pages/searchbar/index';
 
+// for app
+import Commment from './apps/comment/comment';
+import FilterableEpisodeTable from './apps/thinkInReact/filterableEpisodeTable';
+
 class App extends React.Component {
         render() {
                 return (
@@ -67,6 +71,9 @@ ReactDOM.render((
                     <Route path="tabbar" component={TabBar}/>
                     <Route path="tabbar2" component={TabBar2}/>
                     <Route path="searchbar" component={SearchBar}/>
+
+                    <Route path="comment" component={Commment}/>
+                    <Route path="filterableEpisodeTable" component={FilterableEpisodeTable}/>
             </Route>
     </Router>
 ), document.getElementById('container'));
