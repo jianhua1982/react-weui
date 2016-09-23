@@ -32,6 +32,7 @@ import SearchBar from './pages/searchbar/index';
 // for app
 import Commment from './apps/comment/comment';
 import FilterableEpisodeTable from './apps/thinkInReact/filterableEpisodeTable';
+import SnsApi from './apps/snsApi/snsApi';
 
 class App extends React.Component {
         render() {
@@ -74,6 +75,7 @@ ReactDOM.render((
 
                     <Route path="comment" component={Commment}/>
                     <Route path="filterableEpisodeTable" component={FilterableEpisodeTable}/>
+                    <Route path="snsApi" component={SnsApi}/>
             </Route>
     </Router>
 ), document.getElementById('container'));

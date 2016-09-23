@@ -82,8 +82,13 @@ export default class Home extends React.Component {
             href: '#comment'
         }, {
             icon: <img src={IconSearchBar}/>,
-            label: 'FilterableEpisodeTable',
+            label: 'FilterT',
             href: '#filterableEpisodeTable'
+        }
+        , {
+            icon: <img src={IconSearchBar}/>,
+            label: 'snsApi',
+            href: '#snsApi'
         }
         ]
     };

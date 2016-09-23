@@ -31,12 +31,12 @@ class Comment extends React.Component {
 
     render() {
         return (
-            <Cell className="comment">
+            <div className="comment">
                 <h2 className="commentAuthor">
                     {this.props.author}
                 </h2>
                 <span dangerouslySetInnerHTML={this.rawMarkup()} />
-            </Cell>
+            </div>
         );
     }
 }
@@ -49,10 +49,11 @@ class CommentBox extends React.Component {
         // 初始状态设置转移到 constructor 里了
         //this.state = {data: []};
 
-        // Manually bind this method to the component instance...
-        this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
+        // let the invoker to bind this.
 
-        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        // Manually bind this method to the component instance...
+        //this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
+        //this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
 
     static propTypes = {
@@ -115,7 +116,7 @@ class CommentBox extends React.Component {
         //this.state = {data: []};
 
         this.loadCommentsFromServer();  // .bind(this);
-        this.timer = setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+        this.timer = setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
     }
 
     componentWillUnmount(){
@@ -126,8 +127,8 @@ class CommentBox extends React.Component {
         return (
             <div className="commentBox">
                 <h1>Comments</h1>
+                <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)} />
                 <CommentList data={this.state.data} />
-                <CommentForm onCommentSubmit={this.handleCommentSubmit} />
             </div>
         );
     }
@@ -143,9 +144,9 @@ class CommentList extends React.Component {
             );
         });
         return (
-            <Cells className="commentList">
+            <div className="commentList">
                 {commentNodes}
-            </Cells>
+            </div>
         );
     }
 }
@@ -192,18 +193,21 @@ class CommentForm extends React.Component {
                     value={this.state.author}
                     onChange={this.handleAuthorChange}
                 />
-                <input
+                <textarea
                     type="text"
                     placeholder="Say something..."
                     value={this.state.text}
                     onChange={this.handleTextChange}
                 />
-                <input type="submit" value="Post" />
+
+                <div>
+                    <input type="submit" value="Post" />
+                </div>
+
             </form>
         );
     }
 }
-
 
 //ReactDOM.render(
 //    <CommentBox url="/api/comments" pollInterval={2000} />,
